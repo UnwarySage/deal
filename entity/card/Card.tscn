@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://entity/card/Card.gd" type="Script" id=1]
+[ext_resource path="res://entity/card/CardBase.png" type="Texture" id=2]
+[ext_resource path="res://entity/card/Flourish.png" type="Texture" id=3]
+[ext_resource path="res://art/fonts/Alex_Brush/AlexBrush-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="CardContainer" type="MarginContainer"]
+rect_min_size = Vector2( 384, 512 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 384.0
+margin_bottom = 512.0
+rect_min_size = Vector2( 384, 512 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = -16.0
+margin_bottom = -32.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+margin_right = 352.0
+margin_bottom = 448.0
+mouse_filter = 2
+
+[node name="UpperFlourish" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer"]
+margin_right = 352.0
+margin_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="CardText" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 352.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Your Text Here"
+align = 1
+autowrap = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="TextureRect" to="." method="_on_TextureRect_gui_input"]
