@@ -4,7 +4,7 @@ onready var _dialog = find_node("DialogSystem",true)
 onready var _hand:Hand = find_node("Hand",true)
 
 func _ready():
-	self.connect("on_choose",_hand, "round_ended")
+	_hand.connect("on_choose",self, "round_ended")
 	
 	play_round({"prompt":"I hate this.",
 				"agree":"Me too.",

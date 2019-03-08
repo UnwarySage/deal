@@ -28,7 +28,6 @@ func setup_hand(hand_info:Dictionary)->void:
 	
 	
 func on_choose(id:String)->void:
-	print("yahey")
 	emit_signal("on_choose", id)
 
 	

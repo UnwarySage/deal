@@ -21,7 +21,6 @@ script = ExtResource( 1 )
 margin_right = 384.0
 margin_bottom = 512.0
 rect_min_size = Vector2( 384, 512 )
-mouse_filter = 2
 texture = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]

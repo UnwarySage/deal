@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="Possesion"
 run/main_scene="res://entity/table/Table.tscn"
-config/icon="res://icon.png"
+config/icon="res://entity/card/Flourish.png"
 
 [display]
 
