@@ -21,11 +21,10 @@ func setup_card(text:String,id:String)->void:
 
 func dissolve()->void:
 	_tween.interpolate_property(self, "modulate", modulate, Color(_fade_amount,_fade_amount,_fade_amount,0),.6,Tween.TRANS_QUAD,Tween.EASE_IN)
-	_tween.interpolate_property($TextureRect/DissolveParticles, "self_modulate", modulate, Color(1,1,0),7.2,Tween.TRANS_QUAD,Tween.EASE_IN,.1)
+	_tween.interpolate_property($TextureRect/DissolveParticles, "self_modulate", modulate, Color(1,1,0),2,Tween.TRANS_QUAD,Tween.EASE_IN,.1)
 	_tween.start()
 	$TextureRect/DissolveParticles.emitting = true
-	yield(_tween, "tween_completed")
-	self.visible = false
+
 
 func _on_gui_input(event):
 	if event.is_action("card_click") and not clicked:
@@ -37,15 +36,9 @@ func _on_gui_input(event):
 func _on_mouse_entered()-> void:
 	_tween.interpolate_property(self, "modulate", modulate,
 	 Color(1,1,1),.2,Tween.TRANS_QUAD,Tween.EASE_IN)
-	
-#	_tween.interpolate_property(self, "margin_bottom", margin_bottom,
-#	 4,.2,Tween.TRANS_QUAD,Tween.EASE_IN)
 	_tween.start()
 
 func _on_mouse_exited()-> void:
 	_tween.interpolate_property(self, "modulate", modulate,
 	 Color(_fade_amount,_fade_amount,_fade_amount),.2,Tween.TRANS_QUAD,Tween.EASE_IN)
-	
-#	_tween.interpolate_property(self, "margin_bottom", margin_bottom,
-#	 4,.2,Tween.TRANS_QUAD,Tween.EASE_IN)
 	_tween.start()

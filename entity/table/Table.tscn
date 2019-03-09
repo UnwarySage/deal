@@ -1,10 +1,30 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entity/table/Table.gd" type="Script" id=1]
 [ext_resource path="res://entity/table/BackdropFade.png" type="Texture" id=2]
 [ext_resource path="res://entity/table/Dialog.gd" type="Script" id=3]
 [ext_resource path="res://entity/table/DemonVoice.tres" type="DynamicFont" id=4]
-[ext_resource path="res://entity/card/Hand.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entity/card/DissolveParticles0003.png" type="Texture" id=5]
+[ext_resource path="res://entity/card/Hand.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.475177, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1080, 50, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+angular_velocity = -16.36
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 9.09
+color_ramp = SubResource( 3 )
 
 [node name="Table" type="VBoxContainer"]
 anchor_right = 1.0
@@ -14,7 +34,6 @@ script = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="DialogSystem" type="TextureRect" parent="."]
-editor/display_folded = true
 margin_right = 1920.0
 margin_bottom = 300.0
 texture = ExtResource( 2 )
@@ -40,12 +59,24 @@ text = "What could you ever want?"
 align = 1
 autowrap = true
 
+[node name="CenterContainer" type="CenterContainer" parent="DialogSystem/SpeechContainer"]
+show_behind_parent = true
+margin_right = 1856.0
+margin_bottom = 236.0
+
+[node name="Particles2D" type="Particles2D" parent="DialogSystem/SpeechContainer/CenterContainer"]
+position = Vector2( 923.176, 26.7069 )
+amount = 80
+lifetime = 2.0
+process_material = SubResource( 1 )
+texture = ExtResource( 5 )
+
 [node name="HandContainer" type="MarginContainer" parent="."]
 margin_top = 304.0
 margin_right = 1920.0
 margin_bottom = 816.0
 
-[node name="Hand" parent="HandContainer" instance=ExtResource( 5 )]
+[node name="Hand" parent="HandContainer" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
