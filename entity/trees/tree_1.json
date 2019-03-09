@@ -1,0 +1,12 @@
+{"tree": [
+{"q_text": "A new tree appears!", "is_leaf": false, "options": ["Fight!", "Flee!"], "branch": [1, 2], "visuals": 0},
+{"q_text": "So we are in agreement on the terms." , "is_leaf": false, "options": ["Yes", "No"], "branch": [3, 4], "visuals": 0},
+{"q_text": "But of course, this is a weighty matter, not to be wagered on the turn of a card." , "is_leaf": false, "options": ["You're right.", "What shall be the stakes, then?", "I don't wish to play."], "branch": [5, 6, 7], "visuals": 0},
+{"q_text": "Excellent. Then let us begin!", "cooperation": 1, "is_leaf": true, "visuals": 0},
+{"q_text": "Unfortunately, your opinion on this matters not. Let us begin", "cooperation": -1, "is_leaf": true, "visuals": 0},
+{"q_text": "You'll soon learn that I am often right, friend" , "friendliness": 1, "is_leaf": true, "visuals": 0},
+{"q_text": "There is a great deal of tradition, is there not?" , "is_leaf": false, "options": ["Pray tell", "If you say so."], "branch": [8, 9], "visuals": 0},
+{"q_text": "You don't have much of a choice, do you?" , "is_leaf": true, "friendliness": -1, "visuals": 0},
+{"q_text": "Nothing more than your immortal soul, of course. Now let us begin." , "is_leaf": true, "visuals": 0},
+{"q_text": "And say so I do. Let us begin." , "is_leaf": true, "visuals": 0}
+]}
