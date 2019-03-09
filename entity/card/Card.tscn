@@ -1,15 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entity/card/Card.gd" type="Script" id=1]
 [ext_resource path="res://entity/card/CardBase.png" type="Texture" id=2]
 [ext_resource path="res://entity/card/Flourish.png" type="Texture" id=3]
 [ext_resource path="res://art/fonts/Alex_Brush/AlexBrush-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://entity/card/DissolveParticles0000.png" type="Texture" id=5]
+[ext_resource path="res://entity/card/DissolveParticles0001.png" type="Texture" id=6]
+[ext_resource path="res://entity/card/DissolveParticles0002.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.64539, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 128, 200, 1 )
+flag_disable_z = true
+spread = 4.09
+gravity = Vector3( 50, -80, 0 )
+initial_velocity = 45.45
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 4 )
+anim_speed_random = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="AnimatedTexture" id=5]
+flags = 4
+frames = 3
+fps = 0.0
+frame_0/texture = ExtResource( 5 )
+frame_1/texture = ExtResource( 6 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 7 )
+frame_2/delay_sec = 0.0
 
 [node name="CardContainer" type="MarginContainer"]
 rect_min_size = Vector2( 384, 512 )
@@ -53,6 +86,15 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Your Text Here"
 align = 1
 autowrap = true
+
+[node name="DissolveParticles" type="Particles2D" parent="TextureRect"]
+position = Vector2( 185.048, 235.81 )
+emitting = false
+amount = 300
+lifetime = 3.0
+explosiveness = 0.75
+process_material = SubResource( 2 )
+texture = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]
 

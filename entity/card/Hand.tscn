@@ -20,3 +20,5 @@ margin_bottom = 1016.0
 texture = ExtResource( 3 )
 stretch_mode = 4
 
+[node name="Tween" type="Tween" parent="."]
+
